@@ -1,11 +1,17 @@
 const axios = require('axios');
 
-let ReceivedFeedbackByTeacher = {
-    Jonas:[{student:"Mike",feedback:["Your voice is too low"]}],
-    Mitchell:[{student:"",feedback:["You should give us less homework"]}],
+const initialState = {
+    students:[
+        {name:"Mike",age:19,email:"mike@gmail.com",phoneNo:7845668},
+        {name:"Manu",age:20,email:"manu@gmail.com",phoneNo:7845668},
+    ],
+    teachers:[
+        {name:"Jonas",age:26,email:"jonas@gmail.com",phoneNo:7845668},
+        {name:"Mitchell",age:23,email:"mitchell@gmail.com",phoneNo:7845668},
+    ]
 }
 
-axios.put('https://education-project-1a678.firebaseio.com/receivedFeedbackByTeacher.json',ReceivedFeedbackByTeacher)
+axios.put('https://education-project-1a678.firebaseio.com/users.json',initialState)
 .then(res => console.log(res));
 
 const state = {
@@ -39,3 +45,7 @@ const state = {
     teacherName:["..."],
 
 }
+
+
+
+

@@ -1,8 +1,9 @@
+import * as actionTypes from '../../actions/actionTypes'
 const initialState = {
     students:[
-        //completedAssignments and incompleteAssignments
-        // consists array of objects {nameOfTeacher:"...",assignment:"..."}
-        {name:"Mike",completedAssignments:[],inCompleteAssignments:[]},
+        {name:"Mike",
+        completedAssignments:[{Jonas:"10 pages of handwriting"}],
+        inCompleteAssignments:[{Jonas:"5 pages of handwriting"}]},
 
 
     ],
@@ -12,6 +13,13 @@ const initialState = {
 }
 
 const reducer = (state = initialState,action) => {
+    switch(action.type) {
+        case actionTypes.SET_ASSIGNMENTS:
+            return {
+                ...action.val
+                
+            }
+    }
     return state;
 }
 

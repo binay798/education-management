@@ -1,11 +1,11 @@
 const initialState = {
     sentFeedbackByStudent:{
         nameOfStudent:[{teacher:"",feedback:["..."]}],
-        nameOfStudent:[{teacher:"",feedback:["..."]}],
+        
     },
     ReceivedFeedbackByTeacher:{
         nameOfTeacher:[{student:"",feedback:["..."]}],
-        nameOfTeacher:[{student:"",feedback:["..."]}],
+        
     }
 }
 

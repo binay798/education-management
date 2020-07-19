@@ -10,6 +10,8 @@ import assignmentReducer from './store/reducers/Assignments/Assignments';
 import authenticatedUserReducer from './store/reducers/AuthenticatedUser/AuthenticatedUser';
 import feedbackReducer from './store/reducers/Feedback/Feedback';
 import noticesReducer from './store/reducers/Notices/Notices';
+import userReducer from './store/reducers/Users/Users';
+
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
@@ -17,12 +19,15 @@ const rootReducer = combineReducers({
   authenticatedUser:authenticatedUserReducer,
   feedback:feedbackReducer,
   notice:noticesReducer,
+  user:userReducer
 })
 const store = createStore(rootReducer,applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
