@@ -7,23 +7,52 @@ import React from 'react';
 let initialState = {};
 class Student extends React.Component {
 
-    showData = () => {
-        console.log("Initial State",initialState)
-    }
+    
     componentDidMount() {
         axios.get('https://education-project-1a678.firebaseio.com/.json')
         .then(res => {
             initialState = {...res.data}
+            //send assignments from firebase to store assignments
+            this.props.setAssignment(initialState.assignments)
+            //send feedback from firebase to store feedback
+            this.props.setFeedback(initialState.receivedFeedbackByTeacher,initialState.sentFeedbackByStudent);
+            //send notices from firebase to store notices
+            this.props.setNotices(initialState.notices)
             
-            this.showData()
         });
     }
+    showData = () => {
+        console.log(this.props.assignments,this.props.feedback,this.props.notices)
+    }
     render() {
-       
-        return (<div>Student Dashboard</div>)
+        
+        return (
+            <div>
+                <p>Student Dashboard</p>
+                <button onClick={this.showData}>click</button>
+            </div>
+        )
     }
 }
 
 
 
-export default Student;
+//Redux stuff
+const mapStateToProps = state => {
+    
+    return {
+        assignments:state.assignments,
+        feedback:state.feedback,
+        notices:state.notice
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        setAssignment:(value) => dispatch({type:actionTypes.SET_ASSIGNMENTS,val:value}),
+        setFeedback:(value) => dispatch({type:actionTypes.SET_FEEDBACK,val:value}),
+        setNotices:(value) => dispatch({type:actionTypes.SET_NOTICES,val:value}),
+        
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Student);
