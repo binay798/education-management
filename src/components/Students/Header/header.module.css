@@ -1,0 +1,16 @@
+.Header {
+    display:flex;
+    
+    align-items: center;
+    overflow: hidden;
+    
+}
+.Header p {
+    margin:0 15px;
+}
+.Header img {
+    display: block;
+    border-radius: 50%;
+    width:50px;
+    margin-right: 1rem;
+}

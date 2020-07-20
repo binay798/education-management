@@ -1,35 +1,35 @@
-import axios from 'axios';
-import {connect} from 'react-redux'
-import * as actionTypes from '../../store/actions/actionTypes'
-import React from 'react';
 
-//Just for testing state of firebase
-let initialState = {};
+import {connect} from 'react-redux'
+
+import React from 'react';
+import classes from './StudentDashboard.module.css';
+import Sidedrawer from '../../components/Students/SideDrawer/SideDrawer';
+import Header from '../../components/Students/Header/header';
+import TeacherList from '../../components/Students/TeacherInfo/TeacherList/teacherList'
+import Main from '../../components/Students/Main/Main'
+
+
+
 class Student extends React.Component {
 
     
-    componentDidMount() {
-        axios.get('https://education-project-1a678.firebaseio.com/.json')
-        .then(res => {
-            initialState = {...res.data}
-            //send assignments from firebase to store assignments
-            this.props.setAssignment(initialState.assignments)
-            //send feedback from firebase to store feedback
-            this.props.setFeedback(initialState.receivedFeedbackByTeacher,initialState.sentFeedbackByStudent);
-            //send notices from firebase to store notices
-            this.props.setNotices(initialState.notices)
-            
-        });
-    }
-    showData = () => {
-        console.log(this.props.assignments,this.props.feedback,this.props.notices)
-    }
+    
     render() {
         
         return (
-            <div>
-                <p>Student Dashboard</p>
-                <button onClick={this.showData}>click</button>
+            <div className={classes.Student}>
+                <div className={classes.Sidedrawer}>
+                    <Sidedrawer />
+                </div>
+                <div className={classes.Main__right}>
+                    <div className={classes.Header}>
+                        <Header />
+                    </div>
+                    <div className={classes.Main}>
+                        <TeacherList />
+                        <Main />
+                    </div>
+                </div>
             </div>
         )
     }
@@ -46,13 +46,6 @@ const mapStateToProps = state => {
         notices:state.notice
     }
 }
-const mapDispatchToProps = dispatch => {
-    return {
-        setAssignment:(value) => dispatch({type:actionTypes.SET_ASSIGNMENTS,val:value}),
-        setFeedback:(value) => dispatch({type:actionTypes.SET_FEEDBACK,val:value}),
-        setNotices:(value) => dispatch({type:actionTypes.SET_NOTICES,val:value}),
-        
-    }
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Student);
+
+export default connect(mapStateToProps)(Student);

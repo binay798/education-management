@@ -2,7 +2,7 @@ import * as actionTypes from '../../actions/actionTypes'
 
 const initialState = {
     Jonas: ["I'll be not attending class today"],
-    Mitchell: ["Today is my birthdat"]
+    Mitchell: ["Today is my birthday"]
 }
 
 const reducer = (state = initialState,action) => {
@@ -15,7 +15,8 @@ const reducer = (state = initialState,action) => {
         default:
             return state;
     }
-    return state;
+
+    
 }
 
 export default reducer;

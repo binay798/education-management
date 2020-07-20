@@ -11,7 +11,7 @@ import authenticatedUserReducer from './store/reducers/AuthenticatedUser/Authent
 import feedbackReducer from './store/reducers/Feedback/Feedback';
 import noticesReducer from './store/reducers/Notices/Notices';
 import userReducer from './store/reducers/Users/Users';
-
+import {BrowserRouter} from 'react-router-dom'
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
@@ -26,7 +26,9 @@ const store = createStore(rootReducer,applyMiddleware(thunk))
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <BrowserRouter>
       <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,0 +1,14 @@
+.SidedrawerList {
+    list-style: none;
+    padding:0;
+    margin-top: 4rem;
+}
+.SidedrawerList li a:link,a:visited{
+    text-decoration: none;
+    display: block;
+    padding:15px;
+    transition: .2s;
+}
+.SidedrawerList li a:hover {
+    background-color: gray;
+}

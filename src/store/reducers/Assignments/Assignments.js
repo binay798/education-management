@@ -2,8 +2,8 @@ import * as actionTypes from '../../actions/actionTypes'
 const initialState = {
     students:[
         {name:"Mike",
-        completedAssignments:[{Jonas:"10 pages of handwriting"}],
-        inCompleteAssignments:[{Jonas:"5 pages of handwriting"}]
+        completedAssignments:[{name:"Jonas",assignment:"10 pages of handwriting"}],
+        inCompleteAssignments:[{name:"Jonas",assignment:"5 pages of handwriting"}]
         },
 
 
@@ -23,7 +23,7 @@ const reducer = (state = initialState,action) => {
         default:
             return state;
     }
-    return state;
+   
 }
 
 export default reducer;

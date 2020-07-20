@@ -1,0 +1,18 @@
+.TeacherList {
+    flex:1;
+    background-color: aquamarine;
+}
+.TeacherList ul {
+    list-style: none;
+    padding:0;
+}
+
+.TeacherList ul li a:link,a:visited {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    transition: .2s;
+}
+.TeacherList ul li a:hover {
+    background-color: gray;
+}
