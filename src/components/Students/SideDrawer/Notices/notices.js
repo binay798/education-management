@@ -4,8 +4,8 @@ const notices = props => {
     let teachers = Object.keys(props.notices);
     let x = teachers.map(teacher => {
         
-        return props.notices[teacher].map(notice => {
-        return (<div>{teacher} -- {notice}</div>)
+        return props.notices[teacher].map((notice,id) => {
+        return (<div key={id}>{teacher} -- {notice}</div>)
         })
     })
     

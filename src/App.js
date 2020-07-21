@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
-import StudentDashboard from './containers/StudentDashboard/StudentDashboard'
+import StudentDashboard from './containers/StudentDashboard/StudentDashboard';
+import TeacherDashboard from './containers/TeacherDashboard/TeacherDashboard';
 import {connect} from 'react-redux'
 import * as actionTypes from './store/actions/actionTypes';
 import {Route} from "react-router-dom"
@@ -38,6 +39,9 @@ class App extends React.Component {
         
         <Route  path="/student">
           <StudentDashboard />
+        </Route>
+        <Route path="/teacher" >
+          <TeacherDashboard />
         </Route>
       </div>
     );

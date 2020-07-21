@@ -1,0 +1,17 @@
+.Header {
+    display: flex;
+    align-items: center;
+    width:140px;
+    height: 70px;
+    overflow: hidden;
+    margin-left: auto;
+}
+.Header img {
+    display: block;
+    height: 100%;
+    border-radius: 50%;
+
+}
+.Header p {
+    margin-right: 1rem;
+}

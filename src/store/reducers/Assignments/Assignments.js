@@ -9,8 +9,13 @@ const initialState = {
 
     ],
     teachers:[
-        {name:"Jonas",assignments:["10 pages of handwriting"]},
-        {name:"Mitchell",assignments:["2 pages of handwriting"]}
+        {name:"Jonas",
+        assignments:["10 pages of handwriting"],
+        },
+
+        {name:"Mitchell",
+        assignments:["2 pages of handwriting"],
+        }
     ],
 }
 

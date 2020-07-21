@@ -12,7 +12,9 @@
     text-decoration: none;
     padding: 15px;
     transition: .2s;
+    
 }
-.TeacherList ul li a:hover {
+
+.TeacherList ul li a:hover,a.active {
     background-color: gray;
 }

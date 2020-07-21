@@ -1,7 +1,7 @@
 import React from 'react';
 
 const teacherInfo = props => {
-    console.log(props)
+    
     return(
         <div>
             Teacher Info
@@ -13,6 +13,7 @@ const teacherInfo = props => {
             <hr />
             <h3>Send Feedback</h3>
             {/*Send feedback*/}
+            
             <input type="text" style={{width:"90%",display:"block",margin:"0 auto"}} /><br />
             <button style={{display:"block",width:"50%",margin:"0 auto"}}>Submit</button>
         </div>

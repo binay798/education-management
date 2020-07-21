@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './teacherList.module.css';
 import {connect} from 'react-redux';
-import {Route,Link} from 'react-router-dom'
-import TeacherInfo from '../teacherInfo';
+import {NavLink} from 'react-router-dom'
+
 
 const teacherList = props => {
     
@@ -10,7 +10,7 @@ const teacherList = props => {
     return (
         <li key={id}>
             
-            <Link to={`/student/${teacher.name}`}>{teacher.name}-({teacher.subject})</Link>
+            <NavLink activeClassName={classes.active} to={`/student/${teacher.name}`}>{teacher.name}-({teacher.subject})</NavLink>
         </li>
         )
     })

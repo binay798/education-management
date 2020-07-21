@@ -1,0 +1,24 @@
+.TeacherDashboard {
+    display:flex;
+    height: 100vh;
+}
+.Sidedrawer {
+    height: 100%;
+    background-color: #f7f7f7;
+    width:300px;
+}
+.Right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width:100%;
+}
+.Header {
+    padding:10px;
+}
+.Main {
+    align-self: stretch;
+    height: 100%;
+    background-color: coral;
+    display: flex;
+}
