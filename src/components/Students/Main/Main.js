@@ -12,7 +12,7 @@ const send = props => {
 
     let teachers = props.teachers.map((teacher,id) => {
         return (
-            <Route key={id} path={`/student/${teacher.name}`}><TeacherInfo teacherInfo={teacher} /></Route>
+            <Route key={id} path={`/student/${teacher.username}`}><TeacherInfo teacherInfo={teacher} /></Route>
             )
         })
 

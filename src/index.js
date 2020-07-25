@@ -11,7 +11,8 @@ import authenticatedUserReducer from './store/reducers/AuthenticatedUser/Authent
 import feedbackReducer from './store/reducers/Feedback/Feedback';
 import noticesReducer from './store/reducers/Notices/Notices';
 import userReducer from './store/reducers/Users/Users';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom';
+import startReducer from './store/reducers/start/start'
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   authenticatedUser:authenticatedUserReducer,
   feedback:feedbackReducer,
   notice:noticesReducer,
-  user:userReducer
+  user:userReducer,
+  started:startReducer
 })
 const store = createStore(rootReducer,applyMiddleware(thunk))
 

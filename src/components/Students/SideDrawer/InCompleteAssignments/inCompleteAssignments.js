@@ -24,7 +24,7 @@ const inCompleteAssignments = props => {
 const mapStateToProps = state => {
     return {
         assignments:state.assignments.students,
-        authenticatedUser:state.authenticatedUser.authenticatedUser
+        authenticatedUser:state.authenticatedUser.authenticatedUser.name
     }
 }
 

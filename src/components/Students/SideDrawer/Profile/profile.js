@@ -3,8 +3,9 @@ import {connect} from 'react-redux'
 const profile = props => {
     let currentUser = null;
     props.users.forEach(user => {
-        if(user.name === props.authenticatedUser) {
+        if(user.name === props.authenticatedUser.name) {
             currentUser = user
+            
         }
     })
 
@@ -12,7 +13,7 @@ const profile = props => {
     return(
         <div>
             <h2>Your Profile</h2>
-            <p>Name: {currentUser.name}</p>
+            <p>Name: {currentUser.username}</p>
             <p>Age: {currentUser.age} </p>
             <p>Email: {currentUser.email} </p>
             <p>Phone: {currentUser.phoneNo} </p>
@@ -23,7 +24,7 @@ const profile = props => {
 const mapStateToProps = state => {
     return {
         users:state.user.students,
-        authenticatedUser:state.authenticatedUser.authenticatedUser
+        authenticatedUser:state.authenticatedUser.authenticatedUser.name
     }
 }
 

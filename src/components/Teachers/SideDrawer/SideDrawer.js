@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './SideDrawer.module.css';
 import {NavLink} from 'react-router-dom'
-const sideDrawer = props => {
+const SideDrawer = props => {
     return (
         <div className={classes.Sidedrawer}>
             <h2>Logo</h2>
@@ -10,10 +10,10 @@ const sideDrawer = props => {
                 <li><NavLink to="/teacher/postAssignments">Post Assignments</NavLink></li>
                 <li><NavLink to="/teacher/receivedAssignments">Received Assignments</NavLink></li>
                 <li><NavLink to="/teacher/sendNotices">Send Notices</NavLink></li>
-                <li><NavLink to="/teacher/logout">Logout</NavLink></li>
+                <li><NavLink to="/">Logout</NavLink></li>
             </ul>
         </div>
     )
 }
 
-export default sideDrawer;
+export default SideDrawer;

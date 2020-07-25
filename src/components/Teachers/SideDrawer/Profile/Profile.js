@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
-const profile = props => {
-    
+const Profile = props => {
+    console.log(props.profile)
     let user = null;
     props.profile.map(currentUser => {
-        if(currentUser.name === props.authenticatedUser) {
+        if(currentUser.name === props.authenticatedUser.name) {
             
             user = currentUser;
         }else {
@@ -14,7 +14,7 @@ const profile = props => {
     let userJsx
     if(user !== null) {
         userJsx = (<div>
-                        <p>Name: {user.name} </p>
+                        <p>Name: {user.username} </p>
                         <p>Age: {user.age} </p>
                         <p>Email: {user.email} </p>
                         <p>Phone: {user.phoneNo} </p>
@@ -36,8 +36,8 @@ const profile = props => {
 const mapStateToProps = state => {
     return {
         profile:state.user.teachers,
-        authenticatedUser:state.authenticatedUser.authenticatedUser
+        authenticatedUser:state.authenticatedUser.authenticatedUser.name
     }
 }
 
-export default connect(mapStateToProps)(profile);
+export default connect(mapStateToProps)(Profile);

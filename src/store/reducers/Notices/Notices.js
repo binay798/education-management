@@ -1,8 +1,8 @@
 import * as actionTypes from '../../actions/actionTypes'
 
 const initialState = {
-    Jonas: ["I'll be not attending class today"],
-    Mitchell: ["Today is my birthday"]
+    // Jonas: ["I'll be not attending class today"],
+    // Mitchell: ["Today is my birthday"]
 }
 
 const reducer = (state = initialState,action) => {
@@ -12,6 +12,15 @@ const reducer = (state = initialState,action) => {
             
             let newState = {...action.val}
             return newState;
+        case actionTypes.SET_UPDATED_NOTICES:
+            console.log(action.value)
+            return {
+                ...action.value
+            }
+        case actionTypes.ADD_NOTICE:
+            return {
+                ...action.value
+            }
         default:
             return state;
     }

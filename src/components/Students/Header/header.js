@@ -4,7 +4,7 @@ import classes from './header.module.css';
 import {connect} from 'react-redux'
 
 const header = props => {
-
+    
     return(
         <div className={classes.Header}>
             <h1>Student Dashboard</h1>
@@ -17,9 +17,11 @@ const header = props => {
 }
 
 const mapStateToProps = state => {
+    
     return {
-        authenticatedUser:state.authenticatedUser.authenticatedUser
+        authenticatedUser:state.authenticatedUser.authenticatedUser.name
     }
+
 }
 
 export default connect(mapStateToProps)(header);

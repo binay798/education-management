@@ -5,7 +5,7 @@ import TeacherDashboard from './containers/TeacherDashboard/TeacherDashboard';
 import {connect} from 'react-redux'
 import * as actionTypes from './store/actions/actionTypes';
 import {Route} from "react-router-dom"
-
+import Homepage from './containers/Homepage/Homepage'
 
 
 
@@ -25,7 +25,9 @@ class App extends React.Component {
             //send notices from firebase to store notices
             this.props.setNotices(initialState.notices)
 
-            this.props.setUsers(initialState.users)
+            this.props.setUsers(initialState.users);
+
+            this.props.onStart()
             
         })
         .catch(err => {
@@ -33,20 +35,31 @@ class App extends React.Component {
         });
     }
   render() {
-    
+    console.log(this.props.started)
     return (
       <div className="App">
-        
+        {this.props.started ? 
+        (<><Route  path="/">
+          <Homepage />
+        </Route>
         <Route  path="/student">
           <StudentDashboard />
         </Route>
         <Route path="/teacher" >
           <TeacherDashboard />
-        </Route>
+        </Route></>) :null
+        }
       </div>
+        
     );
   }
   
+}
+
+const mapStateToProps = state => {
+  return {
+    started:state.started.started
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -54,8 +67,9 @@ const mapDispatchToProps = dispatch => {
       setAssignment:(value) => dispatch({type:actionTypes.SET_ASSIGNMENTS,val:value}),
       setFeedback:(value1,value2) => dispatch({type:actionTypes.SET_FEEDBACK,sent:value2,received:value1}),
       setNotices:(value) => dispatch({type:actionTypes.SET_NOTICES,val:value}),
-      setUsers:(value) => dispatch({type:actionTypes.SET_USERS,val:value})
+      setUsers:(value) => dispatch({type:actionTypes.SET_USERS,val:value}),
+      onStart:() => dispatch({type:actionTypes.STARTED})
   }
 }
 
-export default connect(null,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

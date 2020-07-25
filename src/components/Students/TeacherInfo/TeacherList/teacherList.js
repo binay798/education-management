@@ -6,11 +6,12 @@ import {NavLink} from 'react-router-dom'
 
 const teacherList = props => {
     
+    
     let teachers = props.teachers.map((teacher,id) => {
     return (
         <li key={id}>
             
-            <NavLink activeClassName={classes.active} to={`/student/${teacher.name}`}>{teacher.name}-({teacher.subject})</NavLink>
+            <NavLink activeClassName={classes.active} to={`/student/${teacher.username}`}>{teacher.username}-({teacher.subject})</NavLink>
         </li>
         )
     })
@@ -25,9 +26,11 @@ const teacherList = props => {
 }
 
 const mapStateToProps = state => {
+    
     return {
         teachers:state.user.teachers
     }
+
 }
 
 export default connect(mapStateToProps)(teacherList);
