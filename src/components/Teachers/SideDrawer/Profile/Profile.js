@@ -1,20 +1,25 @@
 import React from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import classes from './Profile.module.css';
+
+
 const Profile = props => {
-    console.log(props.profile)
+    
     let user = null;
     props.profile.map(currentUser => {
-        if(currentUser.name === props.authenticatedUser.name) {
+        
+        if(currentUser.username === props.authenticatedUser) {
             
             user = currentUser;
+            return null;
         }else {
             return null;
         }
     })
-    let userJsx
+    let userJsx;
     if(user !== null) {
         userJsx = (<div>
-                        <p>Name: {user.username} </p>
+                        <p>Name: {user.firstname} {user.lastname} </p>
                         <p>Age: {user.age} </p>
                         <p>Email: {user.email} </p>
                         <p>Phone: {user.phoneNo} </p>
@@ -26,7 +31,7 @@ const Profile = props => {
     
     
     return (
-        <div>
+        <div className={classes.Profile}>
             <h2>Profile</h2>
             {userJsx}
         </div>

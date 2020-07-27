@@ -1,7 +1,7 @@
 .SidedrawerList {
     list-style: none;
     padding:0;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 .SidedrawerList li a:link,a:visited{
     text-decoration: none;
@@ -10,6 +10,13 @@
     transition: .2s;
 }
 .SidedrawerList li a:hover,a.active {
-    background-color: gray;
+    background-color: #f1e2e2;
+}
+.Sidedrawer h2{
+    color:#404e46;
+    font-weight: 400;
+    font-size: 40px;
+    margin: 1rem 0 0;
+    text-align: center;
 }
 

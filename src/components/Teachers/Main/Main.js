@@ -4,9 +4,12 @@ import PostAssignments from '../SideDrawer/PostAssignments/PostAssignments';
 import ReceivedAssignments from '../SideDrawer/ReceivedAssignments/ReceivedAssignments';
 import SendNotices from '../SideDrawer/SendNotices/SendNotices';
 import {Route} from 'react-router-dom';
+import classes from './Main.module.css';
+
+
 const main = props => {
     return (
-        <div>
+        <div className={classes.Main}>
             <Route path="/teacher/postAssignments" component={PostAssignments} />
             <Route path="/teacher/receivedAssignments" component={ReceivedAssignments} />
             <Route path="/teacher/sendNotices" component={SendNotices} />

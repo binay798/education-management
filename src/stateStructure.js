@@ -1,19 +1,12 @@
 const axios = require('axios');
 
 const initialState =[
-    {name:"Mike",
-    completedAssignments:[{name:"Jonas",assignment:"10 pages of handwriting"}],
-    inCompleteAssignments:[{name:"Jonas",assignment:"5 pages of handwriting"}]
-    },
-    {name:"Manu",
-    completedAssignments:[{name:"Jonas",assignment:"10 pages of handwriting"}],
-    inCompleteAssignments:[{name:"Jonas",assignment:"5 pages of handwriting"}]
-    }
-
+    {studentName:"Mike",feedback:"You are a good teacher",teacherName:"Jonas"},
+    {studentName:"binay6014",feedback:"You are a good teacher",teacherName:"Jonas"}
 
 ]
 
-axios.put('https://education-project-1a678.firebaseio.com/assignments/students.json',initialState)
+axios.put('https://education-project-1a678.firebaseio.com/feedbacks.json',initialState)
 .then(res => console.log(res))
 .catch(err => console.log(err));
 

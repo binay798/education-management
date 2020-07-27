@@ -18,10 +18,10 @@ class TeacherDashboard extends React.Component {
                             <Header />
                         </div>
                         <div className={classes.Main}>
-                            <div style={{flex:"3",backgroundColor:"#ccc"}}>
+                            <div>
                                 <Main />
                             </div>
-                            <div style={{flex:"1",backgroundColor:"#eee"}}>
+                            <div className={classes.Feedbacks}>
                                 <Feedbacks />
                             </div>
                         </div>

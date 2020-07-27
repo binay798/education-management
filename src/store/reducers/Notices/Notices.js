@@ -13,7 +13,7 @@ const reducer = (state = initialState,action) => {
             let newState = {...action.val}
             return newState;
         case actionTypes.SET_UPDATED_NOTICES:
-            console.log(action.value)
+            
             return {
                 ...action.value
             }

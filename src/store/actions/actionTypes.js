@@ -8,6 +8,7 @@ export const SET_USERS = 'SET_USERS';
 export const ADD_TEACHER_ASSIGNMENT = "ADD_TEACHER_ASSIGNMENT";
 export const SET_UPDATED_NOTICES = 'SET_UPDATED_NOTICES';
 
+export const SEND_FEEDBACK = "SEND_FEEDBACK";
 
 export const AUTH_STUDENT = 'AUTH_STUDENT';
 export const AUTH_TEACHER = 'AUTH_TEACHER';
@@ -20,4 +21,6 @@ export const ADD_TEACHER_TO_ASSIGNMENT = 'ADD_TEACHER_TO_ASSIGNMENT';
 
 export const CHANGE_AUTH_USER = 'CHANGE_AUTH_USER';
 
-export const ADD_NOTICE = 'ADD_NOTICE'
+export const ADD_NOTICE = 'ADD_NOTICE';
+
+export const LOGOUT = 'LOGOUT';

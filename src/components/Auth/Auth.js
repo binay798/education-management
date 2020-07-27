@@ -1,7 +1,10 @@
 import React from 'react';
 import LoginView from '../Auth/LoginView/LoginView'
 import SignUpView from '../Auth/SignUpView/SignUpView';
-import {Route} from 'react-router-dom'
+import {Route} from 'react-router-dom';
+
+
+
 class Auth extends React.Component {
     constructor(props) {
         super(props);
@@ -11,17 +14,6 @@ class Auth extends React.Component {
         }
         
     }
-  
-
-    
-    
-       
-        
-        
-    
-
-
-    
     render() {
         
         

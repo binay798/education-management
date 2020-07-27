@@ -1,6 +1,12 @@
 .TeacherList {
     flex:1;
-    background-color: aquamarine;
+    background-color: #fff;
+    border-right: 1px solid #ecdbdb;
+}
+.TeacherList h2 {
+    text-align: center;
+    color:#404e46;
+    font-weight: 400;
 }
 .TeacherList ul {
     list-style: none;
@@ -16,5 +22,5 @@
 }
 
 .TeacherList ul li a:hover,a.active {
-    background-color: gray;
+    background-color: #f1e2e2;
 }

@@ -1,0 +1,23 @@
+.LoginView {
+    margin:0 auto;
+    max-width: 300px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+    padding:10px;
+}
+.LoginView h2 {
+    text-align: center;
+}
+.LoginView form input {
+    width:100%;
+    box-sizing: border-box;
+    padding:5px 10px;
+    border:1px solid #ccc;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    outline: none;
+}
+.LoginView form label {
+    font-style: italic;
+    color:gray;
+}

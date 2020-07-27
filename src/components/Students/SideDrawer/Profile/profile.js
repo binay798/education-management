@@ -1,9 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import classes from './profile.module.css';
 const profile = props => {
     let currentUser = null;
     props.users.forEach(user => {
-        if(user.name === props.authenticatedUser.name) {
+        if(user.username === props.authenticatedUser) {
             currentUser = user
             
         }
@@ -11,12 +12,12 @@ const profile = props => {
 
     
     return(
-        <div>
+        <div className={classes.Profile}>
             <h2>Your Profile</h2>
-            <p>Name: {currentUser.username}</p>
+            <p>Name: {currentUser.firstname} {currentUser.lastname}</p>
             <p>Age: {currentUser.age} </p>
             <p>Email: {currentUser.email} </p>
-            <p>Phone: {currentUser.phoneNo} </p>
+            <p>Contact: {currentUser.phoneNo} </p>
         </div>
         )
 }

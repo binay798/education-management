@@ -1,5 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import classes from './completedAssignments.module.css';
 const completedAssignments = props => {
     
     let assignments = [...props.assignments]
@@ -18,7 +19,7 @@ const completedAssignments = props => {
     
     
     return(
-        <div>
+        <div className={classes.Completed}>
             <h2>Completed Assignments</h2>
             {assignments}
         </div>

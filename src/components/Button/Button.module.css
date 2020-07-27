@@ -1,0 +1,15 @@
+.Button {
+    padding:5px;
+    background-color: #fbc3c3;
+    cursor: pointer;
+    width:100px;
+    border:1px solid #dccece;
+    border-radius: 2px;
+    transition: .2s;
+    color:#773f3f;
+    font-style: italic;
+    outline: none;
+}
+.Button:hover {
+    background-color: #f59d9d;
+}

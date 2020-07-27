@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actionTypes from '../../../../store/actions/actionTypes';
 import axios from 'axios';
+import classes from './PostAssignments.module.css';
+import Button from '../../../Button/Button'
+
 const PostAssignments = props => {
 
 
@@ -93,7 +96,7 @@ const PostAssignments = props => {
     }
     const submitHandler = (e) => {
         e.preventDefault()
-        if(inpElement.current.value !== null) {
+        if(inpElement.current.value.trim() !== "") {
             
             addTeacherAssingment(inpElement.current.value);
             addStudentAssignment(inpElement.current.value)
@@ -102,11 +105,11 @@ const PostAssignments = props => {
     }
     
     return(
-        <div>
+        <div className={classes.PostAssignments}>
             <form onSubmit={submitHandler}>
                 <h2>Post Assignments</h2>
                 <textarea ref={inpElement} cols="50" rows="5" /><br />
-                <button>{assignment.loading ? "Loading":"Post"}</button>
+                <Button name={assignment.loading ? "Loading":"Post"} />
             </form>
         </div>
     )

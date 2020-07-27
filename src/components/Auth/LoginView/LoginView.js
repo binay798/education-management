@@ -7,12 +7,13 @@ import * as actionTypes from '../../../store/actions/actionTypes'
 const LoginView = props => {
     let studentArray = props.users.students;
     let teacherArray = props.users.teachers;
-
-
-    //search email
-    let loginUser = null;
     
 
+    //search email
+    //let loginUser = null;
+    
+    //loading effect
+    const [loading,setLoading] = React.useState(false)
     const [auth,setAuth] = React.useState({
         email:"",
         password:"",
@@ -23,26 +24,35 @@ const LoginView = props => {
     }
 
     const searchEmail = (em) => {
-        console.log("search")
+        
         //Search in student's data
         studentArray.forEach(item => {
             if(item.email === em) {
-                updatedUser.name = item.username;
+                
+                localStorage.setItem("name",item.username);
+                localStorage.setItem("type","student")
+
+                updatedUser.name = localStorage.getItem("name");
                 updatedUser.type = "student";
+                updatedUser.isAuthenticated = true;
                 props.onChangeUser(updatedUser)
                 props.history.push('/student')
-                console.log(props)
+                
             }
         })
 
         //Search in teacher's data
         teacherArray.forEach(item => {
             if(item.email === em) {
-                updatedUser.name = item.username;
-                updatedUser.type = "student";
+                
+                localStorage.setItem("name",item.username);
+                localStorage.setItem("type","teacher");
+                updatedUser.name = localStorage.getItem("name");
+                updatedUser.type = "teacher";
+                updatedUser.isAuthenticated = true;
                 props.onChangeUser(updatedUser)
                 props.history.push('/teacher')
-                console.log(props)
+                
             }
         })
     }
@@ -57,6 +67,7 @@ const LoginView = props => {
     }
     const submitHandler = (e) => {
         e.preventDefault()
+        setLoading(true)
         if(auth.email !== "" && auth.password !== "") {
             let authData = {
                 email:auth.email,
@@ -69,8 +80,14 @@ const LoginView = props => {
             .then(res => {
                 
                 searchEmail(res.data.email)  
+                setLoading(false)
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                setLoading(false)
+                console.log(err)
+            });
+        }else {
+            setLoading(false)
         }
         
     }
@@ -82,7 +99,7 @@ const LoginView = props => {
             <input name="email" autoComplete="off" onChange={inputChangeHandler} value={auth.email} type="email" /><br/>
             <label>Password</label><br/>
             <input name="password" autoComplete="off" onChange={inputChangeHandler} value={auth.password} type="password" /><br/>
-            <button>Submit</button>
+            <button >{loading ? "Loading..." : "Submit"}</button>
         </form>
         <p>No account ? <Link to="/signup">Signup</Link></p>
     </div>)

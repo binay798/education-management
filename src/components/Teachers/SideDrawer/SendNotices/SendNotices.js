@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actionTypes from '../../../../store/actions/actionTypes';
 import axios from 'axios';
+import classes from './SendNotices.module.css';
+import Button from '../../../Button/Button'
+
 const SendNotices = props => {
     let [notice,setNotice] = React.useState({loading:false})
     let inpElement = React.createRef();
@@ -33,10 +36,10 @@ const SendNotices = props => {
     }
 
     return(
-        <div>
+        <div className={classes.Notices}>
             <h2>Issue Notice</h2>
             <textarea ref={inpElement} cols="50" rows="5" /><br />
-            <button onClick={changeInputHandler}>{notice.loading ? "Loading" : "Issue"}</button>
+            <Button clicked={changeInputHandler} name={notice.loading ? "Loading" : "Issue"} />
         </div>
     )
 }

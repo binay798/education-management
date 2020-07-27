@@ -1,5 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import classes from './notices.module.css';
 const notices = props => {
     let teachers = Object.keys(props.notices);
     let x = teachers.map(teacher => {
@@ -10,7 +11,7 @@ const notices = props => {
     })
     
     return(
-            <div>
+            <div className={classes.Notice}>
                 <h2>Notices</h2>
                 {x}
             </div>

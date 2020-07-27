@@ -5,6 +5,11 @@
     overflow: hidden;
     
 }
+.Header h1 {
+    color:#404e46;
+    font-weight: 300;
+    font-size: 40px;
+}
 .Header p {
     margin:0 15px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
@@ -39,7 +39,7 @@ const SignUpView = props => {
 
     //subjects
     const [subject,setSubject] = React.useState({subject:""})
-    const [loading,setLoading] = React.useState({loading:false})
+    //const [loading,setLoading] = React.useState({loading:false})
     
     const [errMessage,setErrMessage] = React.useState({msg:null})
     const inputChangedHandler = (e) => {
@@ -131,23 +131,30 @@ const SignUpView = props => {
                                 props.addStudentToAssignment(newUserToAssignment)
                                 axios.put(`https://education-project-1a678.firebaseio.com/assignments.json`,newUserToAssignment)
                                 .then(res => {
+                                    localStorage.setItem("name",auth.username);
+                                    localStorage.setItem("type","student")
 
                                     let authUser = {
                                         ...props.auth,
-                                        name:auth.username,
-                                        type:"student"
+                                        name:localStorage.getItem("name"),
+                                        type:localStorage.getItem("type"),
+                                        isAuthenticated:true
                                     }
                                     props.changeAuthenticatedUser(authUser)
 
                                     
                                     props.history.push('/student')
+                                    cleanUp()
                                 })
-                                .catch(err => console.log(err));
+                                .catch(err => {
+                                    console.log(err)
+                                    cleanUp()
+                                });
                             })
                             .catch(err => console.log(err));
                             
             
-                            cleanUp()
+                            
                         }else if(auth.select === "teacher") {
                             userData["subject"] = subject.subject;
                             let updatedNewUser = newUsers.teachers.concat(userData);
@@ -167,26 +174,32 @@ const SignUpView = props => {
                                 props.addTeacherToAssignment(newUserToAssignment)
                                 axios.put(`https://education-project-1a678.firebaseio.com/assignments.json`,newUserToAssignment)
                                 .then(res => {
+
+                                    localStorage.setItem("name",auth.username);
+                                    localStorage.setItem("type","teacher")
                                     let authUser = {
                                         ...props.auth,
-                                        name:auth.username,
-                                        type:"teacher"
+                                        name:localStorage.getItem("name"),
+                                        type:localStorage.getItem("type"),
+                                        isAuthenticated:true,
                                     }
                                     props.changeAuthenticatedUser(authUser)
                                     
                                     //adding user to notice
                                     let updatedNewNoticeUsers = {
                                         ...newNoticeUsers,
-                                        [auth.username]:[""]
+                                        [auth.username]:["I'm your new teacher"]
                                     }
                                     props.onAddingNotice(updatedNewNoticeUsers)
                                     axios.put(`https://education-project-1a678.firebaseio.com/notices.json`,updatedNewNoticeUsers)
                                     .then(res => {
                                         console.log(res)
                                         props.history.push('/teacher')
+                                        cleanUp()
                                     })
                                     .catch(err => {
                                         console.log(err)
+                                        cleanUp()
                                     });
 
                                     
@@ -195,7 +208,7 @@ const SignUpView = props => {
                             })
                             .catch(err => console.log(err));
                             
-                            cleanUp()
+                            
                         }
 
 
@@ -290,7 +303,7 @@ const SignUpView = props => {
             <input name="password1" onChange={inputChangedHandler} value={auth.password1} type="password" /><br/>
             <label>Confirm Password</label><br/>
             <input name="password2" onChange={inputChangedHandler} value={auth.password2} type="password" /><br/>
-            <button>{loading ? "Loading" : "Submit"}</button>
+            <button>Submit</button>
         </form>
         <p>Already has an account ? <Link to="/">Login</Link></p>
     </div>)

@@ -14,11 +14,22 @@
     width:100%;
 }
 .Header {
-    padding:10px;
+    padding:10px ;
+    border-bottom: 1px solid #ccc;
 }
 .Main {
     align-self: stretch;
     height: 100%;
-    background-color: coral;
+    background-color: #fff;
     display: flex;
+    
+}
+.Main > div:first-child {
+    flex:1;
+    border-right: 1px solid #ccc;
+}
+
+.Feedbacks {
+    width:300px;
+    
 }

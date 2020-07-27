@@ -14,7 +14,7 @@ const reducer = (state = initialState,action) => {
     
     switch(action.type) {
         case actionTypes.SET_USERS:
-            console.log(action.val)
+            
             let newState = {...action.val}
             return newState;
         case actionTypes.ADD_STUDENT:

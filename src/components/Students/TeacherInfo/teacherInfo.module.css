@@ -1,0 +1,33 @@
+.TeacherInfo {
+
+}
+.TeacherInfo h2 {
+    color:#404e46;
+    font-weight: 500;
+}
+.TeacherInfo h3 {
+    color:#404e46;
+    font-weight: 500;
+}
+.TeacherInfo p {
+    font-style: italic;
+    font-weight: 300;
+}
+.TeacherInfo form textarea {
+    font-family: inherit;
+    padding:5px 10px;
+    font-style: italic;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border:2px solid #ccc;
+    outline: none;
+    border-radius: 3px;
+    transition: .2s;
+    color:gray;
+}
+.TeacherInfo form textarea:focus {
+    border:2px solid #1dc5c5;
+}
+.TeacherInfo form textarea::placeholder {
+    color:gray;
+}
